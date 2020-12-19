@@ -147,6 +147,12 @@ cfg_if! {
 
         mod wasi;
         pub use wasi::*;
+    } else if #[cfg(target_os = "plan9")] {
+        mod fixed_width_ints;
+        pub use fixed_width_ints::*;
+
+        mod plan9;
+        pub use plan9::*;
     } else {
         // non-supported targets: empty...
     }
